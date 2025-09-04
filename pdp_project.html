@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Tensions: A Geopolitical Analysis | GEHU Bhimtal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Reset & Global Styles */
+        :root {
+            --nato-blue: #2b4f81;
+            --crimson-red: #e74c3c;
+            --dark-gray: #333;
+            --light-gray: #f4f4f4;
+            --text-color: #555;
+            --border-color: #e0e0e0;
+
+            --font-headline: 'Merriweather', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-color);
+            background-color: #fff;
+            line-height: 1.7;
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            background-color: var(--nato-blue);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .site-title {
+            color: #fff;
+            font-family: var(--font-headline);
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 5px;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            list-style: none;
+            padding: 10px 0;
+            width: 250px;
+            z-index: 1001;
+        }
+
+        .nav-links li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown li a {
+            color: var(--dark-gray);
+            padding: 12px 20px;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .dropdown li a:hover {
+            background-color: var(--light-gray);
+        }
+
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Main Layout */
+        .main-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1545185913-e7b513b4a3a6?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+        }
+
+        .hero-title {
+            font-family: var(--font-headline);
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* Blog Grid Layout */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .blog-card {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 5px;
+            color: var(--nato-blue);
+            background-color: rgba(43, 79, 129, 0.1);
+        }
+        .card-tag.red {
+            color: var(--crimson-red);
+            background-color: rgba(231, 76, 60, 0.1);
+        }
+
+        .card-title {
+            font-family: var(--font-headline);
+            font-size: 1.4rem;
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Individual Article Styling */
+        .article {
+            margin-bottom: 60px;
+        }
+
+        .article-header {
+            margin-bottom: 30px;
+        }
+
+        .article-title {
+            font-family: var(--font-headline);
+            font-size: 2.8rem;
+            color: var(--dark-gray);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .article-cover-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .article-content h2 {
+            font-family: var(--font-headline);
+            font-size: 2rem;
+            color: var(--dark-gray);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--nato-blue);
+            padding-left: 15px;
+        }
+
+        .article-content h3 {
+            font-family: var(--font-headline);
+            font-size: 1.5rem;
+            color: var(--dark-gray);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+        }
+
+        .article-content strong {
+            color: var(--dark-gray);
+        }
+
+        .data-point {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--crimson-red);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .data-point p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+        .data-point span {
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: var(--border-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 60px;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 60px;
+            text-align: left;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 4px solid var(--nato-blue);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .timeline-content h3 { margin-top: 0; }
+        .timeline-date {
+            font-weight: 600;
+            color: var(--crimson-red);
+            font-size: 1.2rem;
+        }
+
+        /* Sources Page */
+        .sources-list {
+            list-style-type: none;
+        }
+        .sources-list li {
+            margin-bottom: 15px;
+        }
+        .sources-list a {
+            color: var(--nato-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .sources-list a:hover {
+            color: var(--crimson-red);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+        .footer-quote {
+            font-style: italic;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        .footer-credit {
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px; /* height of nav bar */
+                left: 0;
+                width: 100%;
+                background-color: var(--nato-blue);
+                flex-direction: column;
+                padding: 20px 0;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                text-align: center;
+            }
+            .nav-links li a {
+                padding: 15px;
+                display: block;
+                width: 100%;
+            }
+            .dropdown {
+                position: static;
+                display: block;
+                background-color: rgba(0,0,0,0.2);
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0;
+            }
+             .dropdown li a {
+                 padding-left: 40px;
+                 color: #eee;
+             }
+
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            .article-title {
+                font-size: 2.2rem;
+            }
+            .timeline::before {
+                left: 10px;
+            }
+            .timeline-item, .timeline-item:nth-child(even) {
+                width: 100%;
+                left: 0;
+                padding-left: 50px;
+                padding-right: 15px;
+                text-align: left;
+            }
+            .timeline-item::after, .timeline-item:nth-child(odd):after, .timeline-item:nth-child(even):after {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <a href="#home" class="logo-container">
+            <img src="https://gehu.ac.in/assets/images/geu-white-de3bfd09.svg" alt="GEHU Logo">
+            <span class="site-title">Global Tensions</span>
+        </a>
+
+        <ul class="nav-links" id="nav-links-menu">
+            <li><a href="#home">Home</a></li>
+            <li>
+                <a href="#articles">Articles</a>
+                <ul class="dropdown">
+                    <li><a href="#article-1">Russia-NATO Conflict</a></li>
+                    <li><a href="#article-2">The Global Tariff Wars</a></li>
+                    <li><a href="#article-4">Global Impact</a></li>
+                </ul>
+            </li>
+            <li><a href="#article-timeline">Timeline</a></li>
+            <li><a href="#sources">Sources</a></li>
+        </ul>
+
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+    </nav>
+
+    <main class="main-content">
+
+        <header id="home" class="hero-section fade-in">
+            <h1 class="hero-title">Russia–NATO Conflict & Tariff Wars Explained</h1>
+            <p class="hero-subtitle">A Geopolitical Analysis by Students of GEHU Bhimtal</p>
+        </header>
+
+        <section id="articles" class="blog-grid">
+            <a href="#article-1" class="blog-card fade-in" style="text-decoration: none;">
+                <div class="card-image">
+                    <img src="https://ichef.bbci.co.uk/news/1024/cpsprodpb/5c5d/live/6d65e670-88dd-11f0-84c8-99de564f0440.jpg.webp" alt="NATO and Russia flags">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Geopolitics</span>
+                    <h3 class="card-title">The Russia–NATO Conflict: A Deep Dive</h3>
+                    <p class="card-excerpt">From the ashes of the Soviet Union to the frontlines in Ukraine, tracing the decades of tension.</p>
+                </div>
+            </a>
+
+            <a href="#article-2" class="blog-card fade-in" style="text-decoration: none;">
+                <div class="card-image">
+                    <img src="https://ichef.bbci.co.uk/news/1024/cpsprodpb/39e0/live/4ec859a0-88b0-11f0-84dc-236142004de6.jpg.webp" alt="Global trade and cargo ships">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag red">Economy</span>
+                    <h3 class="card-title">The Global Tariff Wars Explained</h3>
+                    <p class="card-excerpt">How taxes on trade reshaped supply chains and impacted the global economy.</p>
+                </div>
+            </a>
+            
+            <a href="#article-4" class="blog-card fade-in" style="text-decoration: none;">
+                <div class="card-image">
+                    <img src="https://www.jpmorgan.com/content/dam/jpm/cib/complex/content/research/tariffs/Tariffs_header_1440x810.jpg" alt="Graph and globe representing global impact">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">Geopolitics</span>
+                    <h3 class="card-title">Global Impact: Security, Economy & Alliances</h3>
+                    <p class="card-excerpt">Analyzing the interconnected fallout of military conflicts and economic disputes.</p>
+                </div>
+            </a>
+        </section>
+
+        <article id="article-1" class="article fade-in">
+            <header class="article-header">
+                <h1 class="article-title">The Russia–NATO Conflict: A Deep Dive</h1>
+                <p class="article-meta">Category: Geopolitics, History</p>
+            </header>
+            <img src="https://ichef.bbci.co.uk/news/1024/cpsprodpb/5c5d/live/6d65e670-88dd-11f0-84c8-99de564f0440.jpg.webp" alt="Symbolic image of Russia-NATO conflict" class="article-cover-image">
+            <div class="article-content">
+                <p>The tension between Russia and the North Atlantic Treaty Organization (NATO) is one of the defining geopolitical struggles of the 21st century. Its roots, however, go back to the end of the Cold War and the collapse of the Soviet Union.</p>
+
+                <h2>The Seeds of Conflict: NATO's Eastward Expansion</h2>
+                <p>Following the dissolution of the USSR in <strong>1991</strong>, a new European security landscape emerged. Russia, the Soviet Union's successor state, was in a period of profound economic and political transition. Meanwhile, former Warsaw Pact countries in Central and Eastern Europe sought security guarantees and integration with the West.</p>
+                <p>NATO, originally formed as a collective defense alliance against the Soviet Union, began a process of eastward expansion. This was viewed by Western nations as a natural progression for sovereign states choosing their own alliances, but Russia perceived it as a direct threat to its sphere of influence and national security.</p>
+                <ul>
+                    <li><strong>1999 Expansion:</strong> The Czech Republic, Hungary, and Poland joined NATO.</li>
+                    <li><strong>2004 Expansion:</strong> Bulgaria, Estonia, Latvia, Lithuania, Romania, Slovakia, and Slovenia joined, bringing the alliance directly to Russia's borders.</li>
+                </ul>
+
+                <h2>Key Escalations</h2>
+                <h3>2014 Annexation of Crimea</h3>
+                <p>Following the pro-Western Maidan Revolution in Ukraine, which ousted a pro-Russian president, Russia annexed the Crimean Peninsula. This act was condemned internationally and led to the first round of significant sanctions against Russia by NATO members.</p>
+
+                <h3>2022 Full-Scale Invasion of Ukraine</h3>
+                <p>On February 24, 2022, Russia launched a full-scale invasion of Ukraine, citing NATO's potential expansion into Ukraine as a primary security threat. The invasion triggered the most severe international crisis in Europe since World War II, leading to unprecedented sanctions on Russia and massive military and financial aid to Ukraine from NATO countries.</p>
+
+                <div class="data-point">
+                    <p>NATO Membership: <span>As of 2024, NATO comprises <strong>32 member countries</strong>, growing from its 12 founding members in 1949.</span></p>
+                </div>
+                <div class="data-point">
+                    <p>Military Spending: <span>Russia's military spending has significantly increased, with estimates suggesting it reached over <strong>$100 billion in 2023</strong>, reflecting the high cost of the war in Ukraine and the ongoing military buildup.</span></p>
+                </div>
+            </div>
+        </article>
+
+        <article id="article-2" class="article fade-in">
+            <header class="article-header">
+                <h1 class="article-title">The Global Tariff Wars Explained</h1>
+                <p class="article-meta">Category: Economy</p>
+            </header>
+            <img src="https://ichef.bbci.co.uk/news/1024/cpsprodpb/39e0/live/4ec859a0-88b0-11f0-84dc-236142004de6.jpg.webp" alt="Global trade and cargo ships" class="article-cover-image">
+            <div class="article-content">
+                <h2>What is a Tariff War?</h2>
+                <p>A tariff war is an economic conflict where countries impose or raise tariffs (taxes on imported goods) on each other in a retaliatory cycle. One country raises tariffs, prompting another to retaliate with its own, leading to an escalation that can disrupt global trade and harm economic growth.</p>
+
+                <h2>The 2018 Trade Dispute: A Timeline</h2>
+                <p>The most significant recent tariff war began in <strong>2018</strong>, primarily between the United States and China.</p>
+
+                <h3>Tracking the Trump Administration's Tariff Policies</h3>
+                <p>The Trump administration's trade policy was marked by a significant increase in the use of tariffs, largely aimed at reducing trade deficits and encouraging domestic production. Key actions included:</p>
+                <ul>
+                    <li><strong>January 2018:</strong> Tariffs on imported washing machines (20-50%) and solar panels (30%), aimed at protecting U.S. manufacturers.</li>
+                    <li><strong>March 2018:</strong> Tariffs of 25% on steel and 10% on aluminum imports from most countries, citing Section 232 of the Trade Expansion Act of 1962 (national security concerns).</li>
+                    <li><strong>July-September 2018:</strong> Implementation of Section 301 tariffs on Chinese goods, escalating through multiple tranches:
+                        <ul>
+                            <li><strong>July 6, 2018:</strong> 25% tariff on $34 billion worth of Chinese goods.</li>
+                            <li><strong>August 23, 2018:</strong> 25% tariff on an additional $16 billion worth of Chinese goods.</li>
+                            <li><strong>September 24, 2018:</strong> 10% tariff on approximately $200 billion worth of Chinese imports, which was later increased to 25% in May 2019.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Mid-2019:</strong> Threats of tariffs on goods from Mexico and the European Union, though some were later averted or negotiated.</li>
+                </ul>
+                <p>These measures led to retaliatory tariffs from affected countries, particularly China, which imposed tariffs on U.S. agricultural products and other goods.</p>
+
+                <h2>Economic Fallout & Global Impact</h2>
+                <p>The tit-for-tat tariffs had wide-ranging consequences beyond the U.S. and China.</p>
+                <div class="data-point">
+                    <p>Scale of Tariffs: <span>The U.S. ultimately imposed tariffs on over <strong>$360 billion</strong> of Chinese goods, while China retaliated with tariffs on over <strong>$110 billion</strong> of U.S. products.</span></p>
+                </div>
+                <div class="data-point">
+                    <p>Global GDP Impact: <span>The World Bank estimated that the escalating trade tensions could reduce global GDP by up to <strong>0.4%</strong> by slowing trade and investment.</span></p>
+                </div>
+                <p>The conflict led to a global trade slowdown, increased consumer prices due to inflation, and forced businesses to rethink their global supply chains, often moving production out of China to countries like Vietnam and Mexico.</p>
+            </div>
+        </article>
+
+        <article id="article-timeline" class="article fade-in">
+            <header class="article-header">
+                <h1 class="article-title">A Timeline of Tensions</h1>
+            </header>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">1991</h3>
+                        <h4>Collapse of the USSR</h4>
+                        <p>The dissolution of the Soviet Union ends the Cold War and creates a new geopolitical map in Eastern Europe.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">1999-2004</h3>
+                        <h4>NATO Expands Eastward</h4>
+                        <p>Multiple former Warsaw Pact nations join NATO, bringing the alliance to Russia's borders and sparking long-term resentment in Moscow.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">2014</h3>
+                        <h4>Annexation of Crimea</h4>
+                        <p>Russia annexes the Crimean Peninsula from Ukraine, leading to international sanctions and a major escalation in Russia-West tensions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">2018</h3>
+                        <h4>Tariff War Begins</h4>
+                        <p>The United States imposes significant tariffs on Chinese goods, sparking a global trade conflict that disrupts supply chains worldwide.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">2022</h3>
+                        <h4>Invasion of Ukraine</h4>
+                        <p>Russia launches a full-scale invasion of Ukraine, triggering the largest European conflict since WWII and unifying NATO in its response.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article id="article-4" class="article fade-in">
+            <header class="article-header">
+                <h1 class="article-title">Global Impact: Security, Economy & Alliances</h1>
+                <p class="article-meta">Category: Geopolitics, Economy</p>
+            </header>
+            <img src="https://www.jpmorgan.com/content/dam/jpm/cib/complex/content/research/tariffs/Tariffs_header_1440x810.jpg" alt="Graph and globe representing global impact" class="article-cover-image">
+            <div class="article-content">
+                <p>The dual crises of the Russia-NATO conflict and global tariff wars have not occurred in a vacuum. Their effects are interconnected, creating a complex web of global instability.</p>
+
+                <h2>Security: A New Arms Buildup</h2>
+                <p>The war in Ukraine has led to a significant increase in defense spending among NATO members, many of whom are now meeting or exceeding the 2% of GDP target. This has created a security dilemma, as Russia views this buildup as aggressive, fueling its own military expansion and creating a cycle of militarization in Europe.</p>
+
+                <h2>Economy: Fractured Global Supply Chains</h2>
+                <p>The tariff wars initiated a trend of "de-risking" and "friend-shoring," where companies moved their supply chains away from geopolitical rivals. The sanctions against Russia have accelerated this, severing major energy and financial ties between Russia and the West. This has contributed to global inflation, particularly in energy and food prices.</p>
+                
+                <div class="data-point">
+                    <p>Economic Fragmentation: <span>An infographic from the IMF could show the decline in cross-border investment and trade between geopolitical blocs, illustrating the fracturing of the globalized economy.</span></p>
+                </div>
+
+                <h2>Geopolitics: Shifting Alliances</h2>
+                <p>The world is increasingly dividing into geopolitical blocs. While NATO has shown remarkable unity, countries in the "Global South" have often remained neutral. Alliances like <strong>BRICS</strong> (Brazil, Russia, India, China, South Africa) have gained prominence as an alternative forum to Western-led institutions, signaling a shift towards a more multipolar world order.</p>
+            </div>
+        </article>
+
+        <section id="sources" class="article fade-in">
+            <header class="article-header">
+                <h1 class="article-title">Sources & Further Reading</h1>
+            </header>
+            <div class="article-content">
+                <p>All data and factual claims in these articles are based on information from reputable, publicly available sources. We encourage you to explore them for deeper understanding.</p>
+                <ul class="sources-list">
+                    <li><a href="https://www.nato.int/" target="_blank" rel="noopener noreferrer">NATO Official Website (NATO.int)</a></li>
+                    <li><a href="https://www.wto.org/" target="_blank" rel="noopener noreferrer">World Trade Organization (WTO.org)</a></li>
+                    <li><a href="https://www.reuters.com/" target="_blank" rel="noopener noreferrer">Reuters News Agency</a></li>
+                    <li><a href="https://www.worldbank.org/" target="_blank" rel="noopener noreferrer">The World Bank</a></li>
+                    <li><a href="https://www.statista.com/" target="_blank" rel="noopener noreferrer">Statista - Data & Statistics</a></li>
+                </ul>
+            </div>
+        </section>
+        
+        <footer class="fade-in">
+            <p class="footer-quote">“Understanding conflicts & economics shapes the future.”</p>
+            <p class="footer-credit">Made with ❤️ by soldiers of PDP | GEHU Bhimtal</p>
+        </footer>
+
+    </main>
+
+    <script>
+        // Simple fade-in animation on scroll
+        document.addEventListener("DOMContentLoaded", function() {
+            const fadeElems = document.querySelectorAll('.fade-in');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            fadeElems.forEach(elem => {
+                observer.observe(elem);
+            });
+
+            // Mobile Navigation Toggle
+            const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+            const navLinksMenu = document.getElementById('nav-links-menu');
+
+            mobileNavToggle.addEventListener('click', () => {
+                navLinksMenu.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
